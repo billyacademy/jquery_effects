@@ -6,8 +6,8 @@
 body{
   font-family:'Arial', sans-serif;
   font-size:14px;
-  color: #fff;
-  background:#333;
+  color: #FF7518;
+  background:#0953A0;
   line-height:1.6cm;
 }
 
@@ -43,7 +43,7 @@ h1 {
   bottom: 0;
   left: 0;
   padding: 20px;
-  background: #7f7f7f;
+  background: #FF7518;
   background: rgba(0,0,0,0.5);
 }
 

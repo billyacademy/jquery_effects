@@ -1,7 +1,7 @@
 $(document).ready(function(){
   //Set Options
   var speed = 500;              // fade speed
-  var autoSwitch = true;        //auto slider options
+  var autoswitch = true;        //auto slider options
   var autoswitch_speed = 4000   // Auto slider speed
 
 
@@ -15,8 +15,19 @@ $(document).ready(function(){
   $('.active').show();
 
   // event handler
+  // Next handler
+  $('#next').on('click', nextSlide);
 
-  $('#next').on('click', function() {
+  // Prev Handler
+  $('#prev').on('click', prevSlide);
+
+  // Auto slider Handler
+  if(autoswitch == true) {
+    setInterval(nextSlide, autoswitch_speed);
+  }
+
+  // switch to next slide
+  function nextSlide() {
     $('.active').removeClass('active').addClass('oldActive');
     if($('.oldActive').is(':last-child')){
       // last child is asking if it was the last slide
@@ -27,12 +38,13 @@ $(document).ready(function(){
     $('.oldActive').removeClass('oldActive');
     $('.slide').fadeOut(speed);
     $('.active').fadeIn(speed);
-  });
+  }
 
-  $('#prev').on('click', function() {
+  // Switch to previous slide
+  function prevSlide(){
     $('.active').removeClass('active').addClass('oldActive');
     if($('.oldActive').is(':first-child')){
-      // last child is asking if it was the last slide
+
       $('.slide').last().addClass('active');
     } else {
       $('.oldActive').prev().addClass('active');
@@ -40,6 +52,5 @@ $(document).ready(function(){
     $('.oldActive').removeClass('oldActive');
     $('.slide').fadeOut(speed);
     $('.active').fadeIn(speed);
-  });
-
+  }
 });
